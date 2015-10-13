@@ -1,0 +1,36 @@
+header, main.container {
+  margin: 0px auto;
+  width: 65%;
+  padding: 12px;
+}
+
+button {
+  width: 300px;
+  height: 400px;
+  background-color: #DDD;
+  margin: 12px;
+}
+
+main.container {
+  background-color: #AAAADD;
+}
+
+table#battle {
+  margin: 0px auto;
+}
+
+td#versus {
+  padding: 36px;
+  font-size: 36px;
+}
+
+div#chart {
+  width: 60%;
+  margin: 0px auto;
+  text-align: center;
+}
+
+h1 {
+  font-family: 'Teko', sans-serif;
+  margin: 0px;
+}
