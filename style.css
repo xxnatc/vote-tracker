@@ -1,18 +1,39 @@
+body {
+  background-image: url("img/hipster-bg.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  background-color: rgb(89,82,65);
+
+}
+
 header, main.container {
-  margin: 0px auto;
-  width: 65%;
-  padding: 12px;
+  margin: 160px auto 10px auto;
 }
 
 button {
-  width: 300px;
-  height: 400px;
+  width: 272px;
+  height: 360px;
   background-color: #DDD;
   margin: 12px;
 }
 
-main.container {
-  background-color: #AAAADD;
+section#content {
+  width: 620px;
+  margin: 24px auto;
+  padding: 12px 30px;
+  background-color: rgb(255, 255, 255);
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+p {
+  font-family: Arial, sans-serif;
+}
+
+section#vote {
+  padding: 12px;
+  background-color: rgb(110, 119, 116);
+  background-color: rgba(50, 57, 73, 0.5);
+
 }
 
 table#battle {
@@ -20,8 +41,12 @@ table#battle {
 }
 
 td#versus {
-  padding: 36px;
-  font-size: 36px;
+  padding: 12px;
+  font-family: 'Playfair Display', sans-serif;
+  font-size: 400%;
+  color: white;
+  font-style: italic;
+  /*font-weight: bold;*/
 }
 
 div#chart {
@@ -31,6 +56,14 @@ div#chart {
 }
 
 h1 {
-  font-family: 'Teko', sans-serif;
+  font-family: 'Playfair Display', sans-serif;
+  font-size: 500%;
   margin: 0px;
+  text-align: center;
+  color: white;
+  font-style: italic;
+}
+
+content {
+
 }

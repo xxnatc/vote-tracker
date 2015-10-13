@@ -9,7 +9,7 @@ var SeanBean = function(path, character, movie, death) {
     + '<p>' + this.death + '</p>';
     return msg;
   };
-}
+};
 
 var listSeanBean = [
   new SeanBean('img/got.jpg', 'Ned Stark', 'Game of Thrones (2011)', 'Beheaded'),
@@ -52,7 +52,7 @@ tracker.randChoice = function() {
 
 tracker.addTally = function(index) {
   this.tally[index]++; 
-  console.log(this.tally);
+  // console.log(this.tally);
 }
 
 // to replace: charting results
