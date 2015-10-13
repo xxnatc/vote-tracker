@@ -1,65 +1,107 @@
-body {
-  background-image: url("img/hipster-bg.jpg");
-  background-size: cover;
-  background-attachment: fixed;
-  background-color: rgb(89,82,65);
-
-}
-
-header, main.container {
-  margin: 160px auto 10px auto;
-}
-
-button {
-  width: 272px;
-  height: 360px;
-  background-color: #DDD;
-  margin: 12px;
-}
-
-section#content {
-  width: 620px;
-  margin: 24px auto;
-  padding: 12px 30px;
-  background-color: rgb(255, 255, 255);
-  background-color: rgba(255, 255, 255, 0.6);
-}
-
-p {
-  font-family: Arial, sans-serif;
-}
-
-section#vote {
-  padding: 12px;
-  background-color: rgb(110, 119, 116);
-  background-color: rgba(50, 57, 73, 0.5);
-
-}
-
-table#battle {
-  margin: 0px auto;
-}
-
-td#versus {
-  padding: 12px;
-  font-family: 'Playfair Display', sans-serif;
-  font-size: 400%;
-  color: white;
-  font-style: italic;
-  /*font-weight: bold;*/
-}
-
-div#chart {
-  width: 60%;
-  margin: 0px auto;
-  text-align: center;
+header.container {
+  padding-top: 36px;
+  padding-bottom: 30px;
 }
 
 h1 {
-  font-family: 'Playfair Display', sans-serif;
-  font-size: 500%;
-  margin: 0px;
+  font-family: 'Playfair Display', serif;
+  color: #323949;
+  font-size: 9rem;
   text-align: center;
-  color: white;
   font-style: italic;
+  font-weight: bold;
+  line-height: 1.1;
+  margin: 16px auto;
+}
+
+em {
+  color: #FA960A;
+}
+
+section#vote {
+  background-color: #323949;
+  padding: 10px;
+}
+
+div#versus {
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 9rem;
+  color: #FA960A;
+  font-style: italic;
+  padding-top: 100px;
+  line-height: 1;
+  white-space: normal;
+  word-break: break-all;
+} 
+
+h2, h3, h4 {
+  font-family: Arial, sans-serif;
+  margin: 0px;
+  text-transform: none;
+  letter-spacing: 0;
+  font-weight: bold;
+  text-align: center;
+}
+
+h2 {
+  font-size: 3rem;
+}
+
+h3 {
+  font-size: 2.4rem;
+  font-weight: normal;
+}
+
+h4 {
+  font-size: 1.6rem;
+}
+
+.heading-dark {
+  color: white;
+  padding-top: 12px;
+  padding-bottom: 24px;
+}
+
+button {
+  height: 420px;
+  padding: 12px;
+  white-space: normal;
+  background-color: #EEE;
+  vertical-align: middle;
+  transition: all 0.1s;
+  border-radius: 12px;
+  position: relative;
+}
+
+button h3, button h4 {
+  color: #323949;
+  font-weight: bold;
+}
+
+button p {
+  color: #FA960A;
+  line-height: 1;
+  font-size: 2.4rem;
+  font-family: Arial, sans-serif;
+  text-transform: none;
+  letter-spacing: 0;
+  line-height: 1.2;
+  margin: 0px;
+  font-weight: normal;
+}
+
+button img {
+  margin: 12px auto;
+  max-width: 300px;
+}
+
+button:hover {
+  background-color: white;
+  box-shadow: 0px 4px black;
+}
+
+button:active {
+  background-color: #EEE;
+  top: 2px;
 }

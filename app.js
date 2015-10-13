@@ -4,8 +4,9 @@ var SeanBean = function(path, character, movie, death) {
   this.movie = movie;
   this.death = death;
   this.write = function() {
-    var msg = '<img src="' + this.path + '" width="250" />'
-    + '<h2>' + this.character + '</h2><h3>in <i>' + this.movie + '</i></h3>'
+    var msg = '<h3>' + this.character + '</h3>'
+    + '<h4>in <i>' + this.movie + '</i></h4>'
+    + '<img src="' + this.path + '" width="95%" />'
     + '<p>' + this.death + '</p>';
     return msg;
   };
@@ -28,7 +29,6 @@ var listSeanBean = [
   new SeanBean('img/lorna-doone.jpg', 'Carver Doone', 'Lorna Doone (1990)', 'Drowned in a mire'),
   new SeanBean('img/war-requiem.jpg', 'German Soldier', 'War Requiem (1989)', 'Shot in the hand and boyonetted'),
   new SeanBean('img/caravaggio.jpg', 'Ranuccio', 'Caravaggio (1986)', 'Throat sliced open')];
-
 
 var choiceLeft = document.getElementById('choice-left');
 var choiceRight = document.getElementById('choice-right');
@@ -65,7 +65,6 @@ tracker.plot = function() {
 
 tracker.newPair = function() {
   tracker.randChoicePair = tracker.randChoice();   // new random pair of indice
-  // show pair in HTML
   choiceLeft.innerHTML = listSeanBean[this.randChoicePair[0]].write();
   choiceRight.innerHTML = listSeanBean[this.randChoicePair[1]].write();
   
@@ -74,7 +73,6 @@ tracker.newPair = function() {
 };
 tracker.newPair();
 
-// event listener
 choiceLeft.addEventListener('click', function() {
   tracker.addTally(tracker.randChoicePair[0]); 
   tracker.newPair();
