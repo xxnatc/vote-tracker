@@ -48,12 +48,11 @@ tracker.randChoice = function() {
     index2 = this.genRandChoice();
   }
   return [index1, index2];
-}
+};
 
 tracker.addTally = function(index) {
   this.tally[index]++; 
-  // console.log(this.tally);
-}
+};
 
 // to replace: charting results
 tracker.plot = function() {
@@ -62,14 +61,13 @@ tracker.plot = function() {
     msg += 'Tally of index ' + i + ': ' + this.tally[i] + '<br />';
   }
   chart.innerHTML = msg;
-}
+};
 
 tracker.newPair = function() {
   tracker.randChoicePair = tracker.randChoice();   // new random pair of indice
   // show pair in HTML
   choiceLeft.innerHTML = listSeanBean[this.randChoicePair[0]].write();
   choiceRight.innerHTML = listSeanBean[this.randChoicePair[1]].write();
-  console.log(this.randChoicePair);
   
   // to replace: charting results
   this.plot();
@@ -77,5 +75,11 @@ tracker.newPair = function() {
 tracker.newPair();
 
 // event listener
-choiceLeft.addEventListener('click', function() {tracker.addTally(tracker.randChoicePair[0]); tracker.newPair();});
-choiceRight.addEventListener('click', function() {tracker.addTally(tracker.randChoicePair[1]); tracker.newPair();});
+choiceLeft.addEventListener('click', function() {
+  tracker.addTally(tracker.randChoicePair[0]); 
+  tracker.newPair();
+});
+choiceRight.addEventListener('click', function() {
+  tracker.addTally(tracker.randChoicePair[1]); 
+  tracker.newPair();
+});
