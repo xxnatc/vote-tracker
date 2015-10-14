@@ -1,3 +1,4 @@
+
 <html>
 <head>
   <title>Sean Bean dies, again</title>
@@ -6,11 +7,12 @@
   <link rel="stylesheet" href="normalize.css">
   <link rel="stylesheet" href="skeleton.css">
   <link rel="stylesheet" href="style.css">
+  <script src="Chart.js"></script>
 
 </head>
 
 <body>
-  
+
   <header class="container">
     <h1 class="offset-by-one ten columns">The Many <em>Deaths</em><br />of Sean Bean</h1>
     <p class="offset-by-one ten columns">Actor Sean Bean has been dying over and over in movies and TV shows for 20 years. So much so that he became known as the "walking spoiler" and spurred the #DontKillSeanBean campaign. According to <a href="http://nerdist.com/does-sean-bean-really-die-more-than-other-actors/">this article</a> on Nerdist, <b>Bean holds the record of highest on-screen death percentage</b> at 0.32 death/film, although the highest number of death belongs to John Hurt.</p>
@@ -19,7 +21,7 @@
   <section id="vote">
 
     <div class="container">
-      <div class="row heading-dark"> 
+      <div class="row heading-dark">
         <div class="twelve columns">
           <h2>Which Sean Bean character had it worse?</h2>
           <p>(Only non-gunshot deaths are included in this poll)</p>
@@ -32,10 +34,10 @@
         <button id="choice-right" class="five columns"></button>
       </div>
     </div>
-  
+
   </section>
-  
-  <div id="chart" class="container"></div>
+
+  <canvas id="chart" width="500" height="300"></canvas>
 
   <script src="app.js"></script>
 </body>
