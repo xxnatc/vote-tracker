@@ -3,6 +3,7 @@ header.container {
   padding-bottom: 30px;
 }
 
+/* text */
 h1 {
   font-family: 'Playfair Display', serif;
   color: #323949;
@@ -11,19 +12,57 @@ h1 {
   font-style: italic;
   font-weight: bold;
   line-height: 1.1;
-  margin: 16px auto;
+  margin: 30px auto;
 }
 
 em {
   color: #FA960A;
+  font-style: italic;
 }
 
+p {
+  margin: 0px;
+  text-align: center;
+  font-size: 1.6rem;
+  color: #323949;
+}
+
+h2, h3, h4 {
+  margin: 0px;
+  text-transform: none;
+  letter-spacing: 0;
+  text-align: center;
+}
+
+h2 {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+h3 {
+  font-size: 2.4rem;
+}
+
+h4 {
+  font-size: 1.6rem;
+}
+
+/* voting section */
 section#vote {
   background-color: #323949;
   padding: 10px;
 }
 
-div#versus {
+div.row.heading-dark{
+  padding: 16px;
+}
+
+.heading-dark h2, .heading-dark p {
+  color: white;
+  padding-bottom: 3px;
+}
+
+div#versus p{
   text-align: center;
   font-family: 'Playfair Display', serif;
   font-size: 9rem;
@@ -35,34 +74,7 @@ div#versus {
   word-break: break-all;
 } 
 
-h2, h3, h4 {
-  font-family: Arial, sans-serif;
-  margin: 0px;
-  text-transform: none;
-  letter-spacing: 0;
-  font-weight: bold;
-  text-align: center;
-}
-
-h2 {
-  font-size: 3rem;
-}
-
-h3 {
-  font-size: 2.4rem;
-  font-weight: normal;
-}
-
-h4 {
-  font-size: 1.6rem;
-}
-
-.heading-dark {
-  color: white;
-  padding-top: 12px;
-  padding-bottom: 24px;
-}
-
+/* button styles */
 button {
   height: 420px;
   padding: 12px;
@@ -76,19 +88,18 @@ button {
 
 button h3, button h4 {
   color: #323949;
-  font-weight: bold;
+  font-weight: 600;
 }
 
 button p {
   color: #FA960A;
   line-height: 1;
   font-size: 2.4rem;
-  font-family: Arial, sans-serif;
   text-transform: none;
   letter-spacing: 0;
   line-height: 1.2;
   margin: 0px;
-  font-weight: normal;
+  font-weight: 600;
 }
 
 button img {
@@ -96,12 +107,14 @@ button img {
   max-width: 300px;
 }
 
+/* button behaviors */
 button:hover {
   background-color: white;
-  box-shadow: 0px 4px black;
+  box-shadow: 0px 4px #1D1D1D;
 }
 
 button:active {
   background-color: #EEE;
   top: 2px;
+  box-shadow: 0px 0px #1D1D1D;
 }
