@@ -33,7 +33,7 @@ var listSeanBean = [
 
 var choiceLeft = document.getElementById('choice-left');
 var choiceRight = document.getElementById('choice-right');
-var chart = document.getElementById('chart');
+var chart = document.getElementById('chart').getContext("2d");
 
 var tracker = {
   tally: Array(listSeanBean.length).fill(0),
@@ -55,14 +55,30 @@ tracker.addTally = function(index) {
   this.tally[index]++;
 };
 
-// to replace: charting results
+var label = [];
+for(var i = 0; i < listSeanBean.length; i++) {
+label.push(listSeanBean[i].character);
+}
 tracker.plot = function() {
-  var msg = '';
-  for (var i = 0; i < listSeanBean.length; i++) {
-    msg += 'Tally of index ' + i + ': ' + this.tally[i] + '<br />';
-  }
-  chart.innerHTML = msg;
+var data = {
+labels: label,
+datasets: [
+  {
+    data: tracker.tally
+  }]
 };
+var myBarChart = new Chart(chart).Bar(data);
+};
+
+
+// to replace: charting results
+//  tracker.plot = function() {
+//   var msg = '';
+//   for (var i = 0; i < listSeanBean.length; i++) {
+//     msg += 'Tally of index ' + i + ': ' + this.tally[i] + '<br />';
+//   }
+//   chart.innerHTML = msg;
+// };
 
 tracker.newPair = function() {
   tracker.randChoicePair = tracker.randChoice();   // new random pair of indice
