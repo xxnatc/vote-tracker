@@ -1,3 +1,4 @@
+// you rock Natalie
 var SeanBean = function(path, character, movie, death) {
   this.path = path;
   this.character = character;
@@ -51,7 +52,7 @@ tracker.randChoice = function() {
 };
 
 tracker.addTally = function(index) {
-  this.tally[index]++; 
+  this.tally[index]++;
 };
 
 // to replace: charting results
@@ -67,17 +68,17 @@ tracker.newPair = function() {
   tracker.randChoicePair = tracker.randChoice();   // new random pair of indice
   choiceLeft.innerHTML = listSeanBean[this.randChoicePair[0]].write();
   choiceRight.innerHTML = listSeanBean[this.randChoicePair[1]].write();
-  
+
   // to replace: charting results
   this.plot();
 };
 tracker.newPair();
 
 choiceLeft.addEventListener('click', function() {
-  tracker.addTally(tracker.randChoicePair[0]); 
+  tracker.addTally(tracker.randChoicePair[0]);
   tracker.newPair();
 });
 choiceRight.addEventListener('click', function() {
-  tracker.addTally(tracker.randChoicePair[1]); 
+  tracker.addTally(tracker.randChoicePair[1]);
   tracker.newPair();
 });
