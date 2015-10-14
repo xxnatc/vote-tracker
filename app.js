@@ -57,35 +57,36 @@ tracker.addTally = function(index) {
 
 var label = [];
 for(var i = 0; i < listSeanBean.length; i++) {
-label.push(listSeanBean[i].character);
+  label.push(listSeanBean[i].character);
 }
+
+var options = {
+  scaleGridLineWidth: 1.5,
+  scaleLineWidth: 2,
+  animationEasing: 'easeInSine',
+  animationSteps: 40
+};
+
 tracker.plot = function() {
-var data = {
-labels: label,
-datasets: [
-  {
-    data: tracker.tally
-  }]
+  var data = {
+    labels: label,
+    datasets: [
+      {
+        fillColor: 'rgba(50, 57, 73, 0.7)',
+        strokeColor: 'rgba(50, 57, 73, 0.9)',
+        data: tracker.tally
+      }
+    ]
+  };
+  
+  var myBarChart = new Chart(chart).Bar(data, options);
 };
-var myBarChart = new Chart(chart).Bar(data);
-};
-
-
-// to replace: charting results
-//  tracker.plot = function() {
-//   var msg = '';
-//   for (var i = 0; i < listSeanBean.length; i++) {
-//     msg += 'Tally of index ' + i + ': ' + this.tally[i] + '<br />';
-//   }
-//   chart.innerHTML = msg;
-// };
 
 tracker.newPair = function() {
   tracker.randChoicePair = tracker.randChoice();   // new random pair of indice
   choiceLeft.innerHTML = listSeanBean[this.randChoicePair[0]].write();
   choiceRight.innerHTML = listSeanBean[this.randChoicePair[1]].write();
 
-  // to replace: charting results
   this.plot();
 };
 tracker.newPair();
