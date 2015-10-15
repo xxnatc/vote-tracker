@@ -6,6 +6,10 @@ This directory is dedicated to Sean Bean's many on-screen deaths. It includes a 
 
 ## Change log
 
+#### Thursday, 10/15/2015
+- Introduced local storage to save/retrieve tally data
+- Added reset button
+
 #### Wednesday, 10/14/2015
 - Added a bar chart using Chart.js (Driver: Robin; Navigator: Natalie)
 - Styled the chart

@@ -34,6 +34,7 @@ var listSeanBean = [
 var choiceLeft = document.getElementById('choice-left');
 var choiceRight = document.getElementById('choice-right');
 var barChart = document.getElementById('chart').getContext("2d");
+var resetButton = document.getElementById('reset');
 
 var tracker = {
   genRandChoice: function() {
@@ -52,12 +53,17 @@ tracker.randChoice = function() {
 
 // local storage for tally 
 var storeTally;
+
+tracker.resetTally = function() {
+  this.tally = Array(listSeanBean.length).fill(0);
+  storeTally = JSON.stringify(this.tally);
+  localStorage.setItem('store-tally', storeTally);  
+};
+
 if (localStorage.getItem('store-tally')) {
   tracker.tally = JSON.parse(localStorage.getItem('store-tally'));
 } else {
-  tracker.tally = Array(listSeanBean.length).fill(0);
-  storeTally = JSON.stringify(tracker.tally);
-  localStorage.setItem('store-tally', storeTally);
+  tracker.resetTally();
 }
 
 // add to tally and update local storage
@@ -112,4 +118,8 @@ choiceLeft.addEventListener('click', function() {
 choiceRight.addEventListener('click', function() {
   tracker.addTally(tracker.randChoicePair[1]);
   tracker.newPair();
+});
+resetButton.addEventListener('click', function() {
+  tracker.resetTally();
+  tracker.plot();
 });
