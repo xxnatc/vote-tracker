@@ -33,7 +33,7 @@ var listSeanBean = [
 
 var choiceLeft = document.getElementById('choice-left');
 var choiceRight = document.getElementById('choice-right');
-var chart = document.getElementById('chart').getContext("2d");
+var barChart = document.getElementById('chart').getContext("2d");
 
 var tracker = {
   tally: Array(listSeanBean.length).fill(0),
@@ -55,21 +55,22 @@ tracker.addTally = function(index) {
   this.tally[index]++;
 };
 
-var label = [];
+var barLabel = [];
 for(var i = 0; i < listSeanBean.length; i++) {
-  label.push(listSeanBean[i].character);
+  barLabel.push(listSeanBean[i].character);
 }
 
-var options = {
+var barOptions = {
   scaleGridLineWidth: 1.5,
   scaleLineWidth: 2,
   animationEasing: 'easeInSine',
   animationSteps: 40
 };
 
+// plot bar chart with latest data
 tracker.plot = function() {
-  var data = {
-    labels: label,
+  var barData = {
+    labels: barLabel,
     datasets: [
       {
         fillColor: 'rgba(50, 57, 73, 0.7)',
@@ -78,10 +79,10 @@ tracker.plot = function() {
       }
     ]
   };
-  
-  var myBarChart = new Chart(chart).Bar(data, options);
+  var plotBarChart = new Chart(barChart).Bar(barData, barOptions);
 };
 
+// refresh content (images & bar chart) on page
 tracker.newPair = function() {
   tracker.randChoicePair = tracker.randChoice();   // new random pair of indice
   choiceLeft.innerHTML = listSeanBean[this.randChoicePair[0]].write();
@@ -91,6 +92,7 @@ tracker.newPair = function() {
 };
 tracker.newPair();
 
+// react to button-clicking
 choiceLeft.addEventListener('click', function() {
   tracker.addTally(tracker.randChoicePair[0]);
   tracker.newPair();
