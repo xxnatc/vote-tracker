@@ -36,7 +36,6 @@ var choiceRight = document.getElementById('choice-right');
 var barChart = document.getElementById('chart').getContext("2d");
 
 var tracker = {
-  tally: Array(listSeanBean.length).fill(0),
   genRandChoice: function() {
     return Math.floor(Math.random() * listSeanBean.length);
   }
@@ -51,15 +50,28 @@ tracker.randChoice = function() {
   return [index1, index2];
 };
 
+// local storage for tally 
+var storeTally;
+if (localStorage.getItem('store-tally')) {
+  tracker.tally = JSON.parse(localStorage.getItem('store-tally'));
+} else {
+  tracker.tally = Array(listSeanBean.length).fill(0);
+  storeTally = JSON.stringify(tracker.tally);
+  localStorage.setItem('store-tally', storeTally);
+}
+
+// add to tally and update local storage
 tracker.addTally = function(index) {
-  this.tally[index]++;
+  this.tally[index] += 1;
+  storeTally = JSON.stringify(this.tally);
+  localStorage.setItem('store-tally', storeTally);  
 };
 
+// variables for bar chart 
 var barLabel = [];
 for(var i = 0; i < listSeanBean.length; i++) {
   barLabel.push(listSeanBean[i].character);
 }
-
 var barOptions = {
   scaleGridLineWidth: 1.5,
   scaleLineWidth: 2,
