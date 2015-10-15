@@ -15,7 +15,7 @@ var SeanBean = function(path, character, movie, death) {
 
 var listSeanBean = [
   new SeanBean('img/got.jpg', 'Ned Stark', 'Game of Thrones (2011)', 'Beheaded'),
-  new SeanBean('img/black-death.jpg', 'Ulric', 'Black Death (2010)', 'Quatered by horses while suffering from the plague'),
+  new SeanBean('img/black-death.jpg', 'Ulric', 'Black Death (2010)', 'Quartered by horses while suffering from the plague'),
   new SeanBean('img/far-north.jpg', 'Loki', 'Far North (2007)', 'Frozen to death while naked'),
   new SeanBean('img/the-island.jpg', 'Dr. Merrick', 'The Island (2005)', 'Shot through the neck with a grappling hook and hung'),
   new SeanBean('img/henry-viii.jpg', 'Robert Aske', 'Henry VIII (2003)', 'Hung by chains'),
@@ -34,9 +34,9 @@ var listSeanBean = [
 var choiceLeft = document.getElementById('choice-left');
 var choiceRight = document.getElementById('choice-right');
 var barChart = document.getElementById('chart').getContext("2d");
+var resetButton = document.getElementById('reset');
 
 var tracker = {
-  tally: Array(listSeanBean.length).fill(0),
   genRandChoice: function() {
     return Math.floor(Math.random() * listSeanBean.length);
   }
@@ -51,20 +51,39 @@ tracker.randChoice = function() {
   return [index1, index2];
 };
 
-tracker.addTally = function(index) {
-  this.tally[index]++;
+// local storage for tally 
+var storeTally;
+
+tracker.resetTally = function() {
+  this.tally = Array(listSeanBean.length).fill(0);
+  storeTally = JSON.stringify(this.tally);
+  localStorage.setItem('store-tally', storeTally);  
 };
 
+if (localStorage.getItem('store-tally')) {
+  tracker.tally = JSON.parse(localStorage.getItem('store-tally'));
+} else {
+  tracker.resetTally();
+}
+
+// add to tally and update local storage
+tracker.addTally = function(index) {
+  this.tally[index] += 1;
+  storeTally = JSON.stringify(this.tally);
+  localStorage.setItem('store-tally', storeTally);  
+};
+
+// variables for bar chart 
 var barLabel = [];
 for(var i = 0; i < listSeanBean.length; i++) {
   barLabel.push(listSeanBean[i].character);
 }
-
 var barOptions = {
   scaleGridLineWidth: 1.5,
   scaleLineWidth: 2,
   animationEasing: 'easeInSine',
-  animationSteps: 40
+  animationSteps: 40,
+  barValueSpacing: 7
 };
 
 // plot bar chart with latest data
@@ -75,6 +94,8 @@ tracker.plot = function() {
       {
         fillColor: 'rgba(50, 57, 73, 0.7)',
         strokeColor: 'rgba(50, 57, 73, 0.9)',
+        highlightFill: 'rgba(250, 150, 10, 0.7)',
+        highlightStroke: 'rgba(250, 150, 10, 0.9)',
         data: tracker.tally
       }
     ]
@@ -100,4 +121,8 @@ choiceLeft.addEventListener('click', function() {
 choiceRight.addEventListener('click', function() {
   tracker.addTally(tracker.randChoicePair[1]);
   tracker.newPair();
+});
+resetButton.addEventListener('click', function() {
+  tracker.resetTally();
+  tracker.plot();
 });

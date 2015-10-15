@@ -1,6 +1,9 @@
+.container {
+  max-width: 860px;
+}
+
 header.container {
-  padding-top: 36px;
-  padding-bottom: 30px;
+  padding: 28px 0px;
 }
 
 /* text */
@@ -11,7 +14,7 @@ h1 {
   text-align: center;
   font-style: italic;
   font-weight: bold;
-  line-height: 1.1;
+  line-height: 1.05;
   margin: 30px auto;
 }
 
@@ -74,8 +77,8 @@ div#versus p{
   word-break: break-all;
 } 
 
-/* button styles */
-button {
+/* voting button styles */
+button.choice {
   height: 420px;
   padding: 12px;
   white-space: normal;
@@ -108,18 +111,24 @@ button img {
 }
 
 /* button behaviors */
-button:hover {
+button.choice:hover {
   background-color: white;
   box-shadow: 0px 4px #1D1D1D;
 }
 
-button:active {
+button.choice:active {
   background-color: #EEE;
   top: 2px;
   box-shadow: 0px 0px #1D1D1D;
 }
 
+/* poll result */
 canvas {
-  margin: 24px auto;
+  margin: 24px auto 0px auto;
   display: block;
+}
+
+button#reset {
+  display: block;
+  margin: 12px auto;
 }
