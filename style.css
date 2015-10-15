@@ -1,14 +1,9 @@
-body {
-  background: url('img/vector-bg.svg') repeat-x fixed top;
-}
-
 .container {
   max-width: 860px;
 }
 
 header.container {
   padding: 28px 0px;
-  background-color: rgba(255, 255, 255, 0.95);
 }
 
 /* text */
@@ -19,7 +14,7 @@ h1 {
   text-align: center;
   font-style: italic;
   font-weight: bold;
-  line-height: 1.1;
+  line-height: 1.05;
   margin: 30px auto;
 }
 
@@ -58,7 +53,6 @@ h4 {
 /* voting section */
 section#vote {
   background-color: #323949;
-  background-color: rgba(50, 57, 73, 0.8);
   padding: 10px;
 }
 
