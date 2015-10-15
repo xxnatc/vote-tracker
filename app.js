@@ -15,7 +15,7 @@ var SeanBean = function(path, character, movie, death) {
 
 var listSeanBean = [
   new SeanBean('img/got.jpg', 'Ned Stark', 'Game of Thrones (2011)', 'Beheaded'),
-  new SeanBean('img/black-death.jpg', 'Ulric', 'Black Death (2010)', 'Quatered by horses while suffering from the plague'),
+  new SeanBean('img/black-death.jpg', 'Ulric', 'Black Death (2010)', 'Quartered by horses while suffering from the plague'),
   new SeanBean('img/far-north.jpg', 'Loki', 'Far North (2007)', 'Frozen to death while naked'),
   new SeanBean('img/the-island.jpg', 'Dr. Merrick', 'The Island (2005)', 'Shot through the neck with a grappling hook and hung'),
   new SeanBean('img/henry-viii.jpg', 'Robert Aske', 'Henry VIII (2003)', 'Hung by chains'),
@@ -82,7 +82,8 @@ var barOptions = {
   scaleGridLineWidth: 1.5,
   scaleLineWidth: 2,
   animationEasing: 'easeInSine',
-  animationSteps: 40
+  animationSteps: 40,
+  barValueSpacing: 7
 };
 
 // plot bar chart with latest data
@@ -93,6 +94,8 @@ tracker.plot = function() {
       {
         fillColor: 'rgba(50, 57, 73, 0.7)',
         strokeColor: 'rgba(50, 57, 73, 0.9)',
+        highlightFill: 'rgba(250, 150, 10, 0.7)',
+        highlightStroke: 'rgba(250, 150, 10, 0.9)',
         data: tracker.tally
       }
     ]
