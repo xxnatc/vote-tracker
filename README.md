@@ -6,6 +6,9 @@ This directory is dedicated to Sean Bean's many on-screen deaths. It includes a 
 
 ## Change log
 
+#### Saturday, 10/17/2015
+- Added bar chart reset functionality before each plot using `.destroy()`
+
 #### Thursday, 10/15/2015
 - Introduced local storage to save/retrieve tally data
 - Added reset button

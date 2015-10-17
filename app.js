@@ -78,6 +78,7 @@ var barLabel = [];
 for(var i = 0; i < listSeanBean.length; i++) {
   barLabel.push(listSeanBean[i].character);
 }
+
 var barOptions = {
   scaleGridLineWidth: 1.5,
   scaleLineWidth: 2,
@@ -86,21 +87,30 @@ var barOptions = {
   barValueSpacing: 7
 };
 
+var barData = {
+  labels: barLabel,
+  datasets: [
+    {
+      fillColor: 'rgba(50, 57, 73, 0.7)',
+      strokeColor: 'rgba(50, 57, 73, 0.9)',
+      highlightFill: 'rgba(250, 150, 10, 0.7)',
+      highlightStroke: 'rgba(250, 150, 10, 0.9)',
+      data: tracker.tally
+    }
+  ]
+};
+
+var plotBarChart = new Chart(barChart).Bar(barData, barOptions);
+
 // plot bar chart with latest data
 tracker.plot = function() {
-  var barData = {
-    labels: barLabel,
-    datasets: [
-      {
-        fillColor: 'rgba(50, 57, 73, 0.7)',
-        strokeColor: 'rgba(50, 57, 73, 0.9)',
-        highlightFill: 'rgba(250, 150, 10, 0.7)',
-        highlightStroke: 'rgba(250, 150, 10, 0.9)',
-        data: tracker.tally
-      }
-    ]
-  };
-  var plotBarChart = new Chart(barChart).Bar(barData, barOptions);
+  // clean memory of bar chart if exists
+  if (plotBarChart) {
+    plotBarChart.destroy();
+  }
+
+  barData.datasets[0].data = tracker.tally;        // update bar chart data
+  plotBarChart = new Chart(barChart).Bar(barData, barOptions);
 };
 
 // refresh content (images & bar chart) on page
